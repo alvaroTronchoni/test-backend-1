@@ -1,0 +1,6 @@
+<h1>Editar lista de tareas: <%=@task_list.title%></h1>
+
+<%= render 'form', task_list: @task_list %>
+
+<%= link_to 'Ver', @task_list %> |
+<%= link_to 'Atras', task_lists_path %>

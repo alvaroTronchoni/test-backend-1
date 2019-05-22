@@ -1,0 +1,39 @@
+<%= form_with(model: task_list, local: true) do |form| %>
+  <% if task_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task_list.errors.count, "error") %> prohibited this task_list from being saved:</h2>
+
+      <ul>
+      <% task_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Hora de inicio" %>
+    <%= form.datetime_select :start_date, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Hora de fin" %>
+    <%= form.datetime_select :end_date, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= button_tag type: 'submit', class: "btn btn-success", style: 'width: 160px; font-size: 12px' do %>
+        <i class="fa fa-check" aria-hidden="true"></i> Guardar
+    <% end %>
+  </div>
+<% end %>
